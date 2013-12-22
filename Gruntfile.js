@@ -49,13 +49,13 @@ module.exports = function(grunt) {
         options: {
           banner: '/*\n    pO\\\n   6  /\\\n     /OO\\\n    /OOOO\\\n  /OOOOOOOO\\\n ((OOOOOOOO))\n  \\:~=++=~:/\n\n<%= pkg.title %>\nChUI.js\nCopyright <%= grunt.template.today("yyyy") %> Sourcebits www.sourcebits.com\nLicense: <%= pkg.licences[0].type %>\nVersion: <%= pkg.version %>\n*/\n'
         },
-        src: ['src/chui/utils.js', 'src/chui/events.js', 'src/chui/detectors.js', 'src/chui/layout.js', 'src/chui/desktop.js', 'src/chui/layout.js', 'src/chui/gestures.js', 'src/chui/pubsub.js', 'src/chui/navigation.js', 'src/chui/buttons.js', 'src/chui/blockUnblock.js', 'src/chui/center.js', 'src/chui/busy.js', 'src/chui/popup.js', 'src/chui/popover.js', 'src/chui/segmented.js', 'src/chui/togglePanel.js', 'src/chui/paging.js', 'src/chui/deletables.js', 'src/chui/select.js', 'src/chui/sheet.js', 'src/chui/slideout.js', 'src/chui/stepper.js', 'src/chui/switch.js', 'src/chui/tabbar.js', 'src/chui/templates.js'],
+        src: ['src/chui/utils.js', 'src/chui/events.js', 'src/chui/detectors.js', 'src/chui/layout.js', 'src/chui/desktop.js', 'src/chui/layout.js', 'src/chui/gestures.js', 'src/chui/pubsub.js', 'src/chui/navigation.js', 'src/chui/buttons.js', 'src/chui/blockui.js', 'src/chui/center.js', 'src/chui/busy.js', 'src/chui/popup.js', 'src/chui/popover.js', 'src/chui/segmented.js', 'src/chui/togglePanel.js', 'src/chui/paging.js', 'src/chui/deletables.js', 'src/chui/select.js', 'src/chui/sheet.js', 'src/chui/slideout.js', 'src/chui/stepper.js', 'src/chui/switch.js', 'src/chui/tabbar.js', 'src/chui/templates.js'],
         dest: '<%= pkg.project_path %>chui/chui-<%= pkg.version %>.js'
       },
       // Concat Android examples:
       example_android: {
         options: {
-          banner: '<!DOCTYPE html>\n<html lang="en">\n<head>\n   <meta charset="utf-8">\n   <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">\n   <meta name="apple-mobile-web-app-capable" content="yes">\n   <meta name="mobile-web-app-capable" content="yes">\n   <meta name="msapplication-tap-highlight" content="no">\n   <title>ChocolateChip-UI Android</title>\n   <link rel="stylesheet" href="../chui/chui-android-<%= pkg.version %>.css">\n   <script src="<%= pkg.jquery.url %>"></script>\n   <script src="../chui/chui-<%= pkg.version %>.js"></script>\n'
+          banner: '<!DOCTYPE html>\n<html lang="en">\n<head>\n  <meta charset="utf-8">\n  <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">\n  <meta name="apple-mobile-web-app-capable" content="yes">\n  <meta name="mobile-web-app-capable" content="yes">\n  <meta name="msapplication-tap-highlight" content="no">\n  <title>ChocolateChip-UI Android</title>\n  <link rel="stylesheet" href="../chui/chui-android-<%= pkg.version %>.css">\n  <script src="<%= pkg.jquery.url %>"></script>\n  <script src="../chui/chui-<%= pkg.version %>.js"></script>\n'
         },
         files: [{
           expand: true,
@@ -67,7 +67,7 @@ module.exports = function(grunt) {
       // Concat iOS examples:
       example_ios: {
         options: {
-          banner: '<!DOCTYPE html>\n<html lang="en">\n<head>\n   <meta charset="utf-8">\n   <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">\n   <meta name="apple-mobile-web-app-capable" content="yes">\n   <meta name="mobile-web-app-capable" content="yes">\n   <meta name="msapplication-tap-highlight" content="no">\n   <title>ChocolateChip-UI iOS</title>\n   <link rel="stylesheet" href="../chui/chui-ios-<%= pkg.version %>.css">\n   <script src="<%= pkg.jquery.url %>"></script>\n   <script src="../chui/chui-<%= pkg.version %>.js"></script>\n'
+          banner: '<!DOCTYPE html>\n<html lang="en">\n<head>\n  <meta charset="utf-8">\n  <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">\n  <meta name="apple-mobile-web-app-capable" content="yes">\n  <meta name="mobile-web-app-capable" content="yes">\n  <meta name="msapplication-tap-highlight" content="no">\n  <title>ChocolateChip-UI iOS</title>\n  <link rel="stylesheet" href="../chui/chui-ios-<%= pkg.version %>.css">\n  <script src="<%= pkg.jquery.url %>"></script>\n  <script src="../chui/chui-<%= pkg.version %>.js"></script>\n'
         },
         files: [{
           expand: true,
@@ -79,7 +79,7 @@ module.exports = function(grunt) {
       // Concat iOS examples:
       example_win: {
         options: {
-          banner: '<!DOCTYPE html>\n<html lang="en">\n<head>\n   <meta charset="utf-8">\n   <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">\n   <meta name="apple-mobile-web-app-capable" content="yes">\n   <meta name="mobile-web-app-capable" content="yes">\n   <meta name="msapplication-tap-highlight" content="no">\n   <title>ChocolateChip-UI Win</title>\n   <link rel="stylesheet" href="../chui/chui-win-<%= pkg.version %>.css">\n   <script src="<%= pkg.jquery.url %>"></script>\n   <script src="../chui/chui-<%= pkg.version %>.js"></script>\n'
+          banner: '<!DOCTYPE html>\n<html lang="en">\n<head>\n  <meta charset="utf-8">\n  <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">\n  <meta name="apple-mobile-web-app-capable" content="yes">\n  <meta name="mobile-web-app-capable" content="yes">\n  <meta name="msapplication-tap-highlight" content="no">\n  <title>ChocolateChip-UI Win</title>\n  <link rel="stylesheet" href="../chui/chui-win-<%= pkg.version %>.css">\n  <script src="<%= pkg.jquery.url %>"></script>\n  <script src="../chui/chui-<%= pkg.version %>.js"></script>\n'
         },
         files: [{
           expand: true,
@@ -91,7 +91,7 @@ module.exports = function(grunt) {
       // Concat Android version of demo:
       demo_android: {
         options: {
-          banner: '<!DOCTYPE html>\n<html lang="en">\n<head>\n   <meta charset="utf-8">\n   <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">\n   <meta name="apple-mobile-web-app-capable" content="yes">\n   <meta name="mobile-web-app-capable" content="yes">\n   <meta name="msapplication-tap-highlight" content="no">\n   <title>ChocolateChip-UI Demo Android</title>\n   <link rel="stylesheet" href="../chui/chui-android-<%= pkg.version %>.css">\n   <script src="<%= pkg.jquery.url %>"></script>\n   <script src="../chui/chui-<%= pkg.version %>.js"></script>\n'
+          banner: '<!DOCTYPE html>\n<html lang="en">\n<head>\n  <meta charset="utf-8">\n  <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">\n  <meta name="apple-mobile-web-app-capable" content="yes">\n  <meta name="mobile-web-app-capable" content="yes">\n  <meta name="msapplication-tap-highlight" content="no">\n  <title>ChocolateChip-UI Demo Android</title>\n  <link rel="stylesheet" href="../chui/chui-android-<%= pkg.version %>.css">\n  <script src="<%= pkg.jquery.url %>"></script>\n  <script src="../chui/chui-<%= pkg.version %>.js"></script>\n'
         },
         files: {
           '<%= pkg.project_path %>demo/index-android.html': ['src/demo/index.html']
@@ -100,7 +100,7 @@ module.exports = function(grunt) {
       // Concat iOS version of demo:
       demo_ios: {
         options: {
-          banner: '<!DOCTYPE html>\n<html lang="en">\n<head>\n   <meta charset="utf-8">\n   <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">\n   <meta name="apple-mobile-web-app-capable" content="yes">\n   <meta name="mobile-web-app-capable" content="yes">\n   <meta name="msapplication-tap-highlight" content="no">\n   <title>ChocolateChip-UI Demo iOS</title>\n   <link rel="stylesheet" href="../chui/chui-android-<%= pkg.version %>.css">\n   <script src="<%= pkg.jquery.url %>"></script>\n   <script src="../chui/chui-<%= pkg.version %>.js"></script>\n'
+          banner: '<!DOCTYPE html>\n<html lang="en">\n<head>\n  <meta charset="utf-8">\n  <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">\n  <meta name="apple-mobile-web-app-capable" content="yes">\n  <meta name="mobile-web-app-capable" content="yes">\n  <meta name="msapplication-tap-highlight" content="no">\n  <title>ChocolateChip-UI Demo iOS</title>\n  <link rel="stylesheet" href="../chui/chui-android-<%= pkg.version %>.css">\n  <script src="<%= pkg.jquery.url %>"></script>\n  <script src="../chui/chui-<%= pkg.version %>.js"></script>\n'
         },
         files: {
           '<%= pkg.project_path %>demo/index-ios.html': ['src/demo/index.html']
@@ -109,7 +109,7 @@ module.exports = function(grunt) {
       // Concat Windows Phone 8 version of demo:
       demo_win: {
         options: {
-          banner: '<!DOCTYPE html>\n<html lang="en">\n<head>\n   <meta charset="utf-8">\n   <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">\n   <meta name="apple-mobile-web-app-capable" content="yes">\n   <meta name="mobile-web-app-capable" content="yes">\n   <meta name="msapplication-tap-highlight" content="no">\n   <title>ChocolateChip-UI Demo Windows</title>\n   <link rel="stylesheet" href="../chui/chui-android-<%= pkg.version %>.css">\n   <script src="<%= pkg.jquery.url %>"></script>\n   <script src="../chui/chui-<%= pkg.version %>.js"></script>\n'
+          banner: '<!DOCTYPE html>\n<html lang="en">\n<head>\n  <meta charset="utf-8">\n  <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">\n  <meta name="apple-mobile-web-app-capable" content="yes">\n  <meta name="mobile-web-app-capable" content="yes">\n  <meta name="msapplication-tap-highlight" content="no">\n  <title>ChocolateChip-UI Demo Windows</title>\n  <link rel="stylesheet" href="../chui/chui-android-<%= pkg.version %>.css">\n  <script src="<%= pkg.jquery.url %>"></script>\n  <script src="../chui/chui-<%= pkg.version %>.js"></script>\n'
         },
         files: {
           '<%= pkg.project_path %>demo/index-win.html': ['src/demo/index.html']
@@ -216,12 +216,24 @@ module.exports = function(grunt) {
     },
     // Minify JavaScript files:
     uglify: {
-      chui: {
-        options: {
-          banner: '/*\nChocolateChip-UI\nChUI.js\nCopyright <%= grunt.template.today("yyyy") %> Sourcebits www.sourcebits.com\nLicense: <%= pkg.licences[0].type %>\nVersion: <%= pkg.version %>\n*/\n'
+      options: {
+        preserveComments: false,
+        sourceMap: "<%= pkg.project_path %>chui/chui-<%= pkg.version %>.min.map",
+        sourceMappingURL: "chui-<%= pkg.version %>.min.map",
+        report: "min",
+        beautify: {
+          ascii_only: true
         },
+        banner: '/*\nChocolateChip-UI\nChUI.js\nCopyright <%= grunt.template.today("yyyy") %> Sourcebits www.sourcebits.com\nLicense: <%= pkg.licences[0].type %>\nVersion: <%= pkg.version %>\n*/\n',
+        compress: {
+          hoist_funs: false,
+          loops: false,
+          unused: false
+        }
+      },
+      chui: {
         files: {
-          '<%= pkg.project_path %>chui/chui-<%= pkg.version %>.min.js': '<%= pkg.project_path %>chui/chui-<%= pkg.version %>.js'
+          '<%= pkg.project_path %>chui/chui-<%= pkg.version %>.min.js': '<%= pkg.project_path %>chui/chui-<%= pkg.version %>.js' 
         }
       }
     }
