@@ -68,6 +68,23 @@ You may want to build a version of ChUI for a single platform. You can do this a
     // Build ChUI for Windows Phone 8:
     grunt win_examples
 
+##Watch Files
+
+While editing your project, you may find yourself making changes to the LESS files to customize the branding. Or you way want to make changes to the examples to see what happens. You can use `grunt watch` to tell Grunt to regenerate the output each time you make a change to the source files. Here are your options:
+
+    // Watch all files and regenerate 
+    // them when you make changes:
+    grunt watch
+
+    // Watch only the LESS files:
+    grunt watch:less
+
+    // Watch only the ChUI.js source files:
+    grunt watch:scripts
+
+    // Watch the html source files:
+    grunt watch:html
+
 ###Note
 
 You do not need Nodejs to use ChocolateChip-UI. Nodejs is only used to build the framework and examples from the source files.

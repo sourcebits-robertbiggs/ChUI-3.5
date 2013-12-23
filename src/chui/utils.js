@@ -6,21 +6,14 @@
     // Create Uuid:
     ///////////////
     Uuid : function() {
-      var date;
-      date = Date.now();
-      return date.toString(36);
+      return Date.now().toString(36);
     },
 
     ///////////////////////////
     // Concat array of strings:
     ///////////////////////////
     concat : function ( args ) {
-      if (args instanceof Array) {
-        return args.join('');
-      } else {
-        args = Array.prototype.slice.apply(arguments);
-        return String.prototype.concat.apply(args.join(''));
-      }
+      return (args instanceof Array) ? args.join('') : [].slice.apply(arguments).join('');
     }
   });
 

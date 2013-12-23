@@ -1,6 +1,33 @@
 (function($) {
   'use strict';
 
+  ////////////////////////////////////
+  // Create custom navigationend event
+  ////////////////////////////////////
+  function triggerNavigationEvent(target) {
+    var transition;
+    var tansitionDuration;
+    if ('transition' in document.body.style) {
+      transition = 'transition-duration';
+    } else if ('-webkit-transition' in document.body.style){
+      transition = '-webkit-transition-duration';
+    }
+
+    function determineDurationType (duration) {
+      if (/m/.test(duration)) {
+        return parseFloat(duration); 
+      } else if (/s/.test(duration)) {
+        return parseFloat(duration) * 100;
+      }
+    }
+
+    tansitionDuration = determineDurationType($('article').eq(0).css(transition));
+    
+    setTimeout(function() {
+      $(target).trigger({type: 'navigationend'});
+    }, tansitionDuration);
+  }
+
   $.extend({
     ////////////////////////////////////////////////
     // Manage location.hash for client side routing:
@@ -64,6 +91,7 @@
       currentToolbar.removeClass('current').addClass('next');
       $('.toolbar.previous').removeClass('previous').addClass('next');
       $.UISetHashOnUrl($.UINavigationHistory[$.UINavigationHistory.length-1]);
+      triggerNavigationEvent(destination);
     },
 
     ////////////////////////////////////
@@ -126,6 +154,9 @@
       setTimeout(function() {
         $.isNavigating = false;
       }, 500);
+
+      triggerNavigationEvent(destination);
+
     }
   });
 
