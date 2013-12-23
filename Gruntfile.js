@@ -49,7 +49,33 @@ module.exports = function(grunt) {
         options: {
           banner: '/*\n    pO\\\n   6  /\\\n     /OO\\\n    /OOOO\\\n  /OOOOOOOO\\\n ((OOOOOOOO))\n  \\:~=++=~:/\n\n<%= pkg.title %>\nChUI.js\nCopyright <%= grunt.template.today("yyyy") %> Sourcebits www.sourcebits.com\nLicense: <%= pkg.licences[0].type %>\nVersion: <%= pkg.version %>\n*/\n'
         },
-        src: ['src/chui/utils.js', 'src/chui/events.js', 'src/chui/detectors.js', 'src/chui/gestures.js', 'src/chui/desktop.js', 'src/chui/layout.js', 'src/chui/pubsub.js', 'src/chui/navigation.js', 'src/chui/buttons.js', 'src/chui/blockui.js', 'src/chui/center.js', 'src/chui/busy.js', 'src/chui/popup.js', 'src/chui/popover.js', 'src/chui/segmented.js', 'src/chui/togglePanel.js', 'src/chui/paging.js', 'src/chui/deletables.js', 'src/chui/select.js', 'src/chui/sheet.js', 'src/chui/slideout.js', 'src/chui/stepper.js', 'src/chui/switch.js', 'src/chui/tabbar.js', 'src/chui/templates.js'],
+        src: [
+          'src/chui/utils.js', 
+          'src/chui/events.js', 
+          'src/chui/detectors.js', 
+          'src/chui/gestures.js', 
+          'src/chui/desktop.js', 
+          'src/chui/layout.js', 
+          'src/chui/pubsub.js', 
+          'src/chui/navigation.js', 
+          'src/chui/buttons.js', 
+          'src/chui/blockui.js', 
+          'src/chui/center.js', 
+          'src/chui/busy.js', 
+          'src/chui/popup.js', 
+          'src/chui/popover.js', 
+          'src/chui/segmented.js', 
+          'src/chui/togglePanel.js', 
+          'src/chui/paging.js', 
+          'src/chui/deletables.js', 
+          'src/chui/select.js', 
+          'src/chui/sheet.js', 
+          'src/chui/slideout.js', 
+          'src/chui/stepper.js', 
+          'src/chui/switch.js', 
+          'src/chui/tabbar.js', 
+          'src/chui/templates.js'
+        ],
         dest: '<%= pkg.project_path %>chui/chui-<%= pkg.version %>.js'
       },
       // Concat Android examples:
@@ -258,7 +284,15 @@ module.exports = function(grunt) {
           spawn: false
         },
         files: ['src/examples/*.html', 'src/demo/*.html'],
-        tasks: ['concat:example_android', 'concat:demo_android', 'concat:example_ios', 'concat:demo_android', 'concat:example_win', 'concat:demo_android', 'copy']
+        tasks: [
+          'concat:example_android', 
+          'concat:demo_android', 
+          'concat:example_ios', 
+          'concat:demo_android', 
+          'concat:example_win', 
+          'concat:demo_android', 
+          'copy'
+        ]
       }
     }  
 
