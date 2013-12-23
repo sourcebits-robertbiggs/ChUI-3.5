@@ -1,4 +1,4 @@
-(function() {
+(function($) {
   'use strict';
 
   //////////////////////////////////
@@ -7,9 +7,7 @@
   if ((/android/img.test(navigator.userAgent)) && (/webkit/img.test(navigator.userAgent) ) && (!/Chrome/img.test(navigator.userAgent))) {
     document.body.classList.add('isNativeAndroidBrowser');
   }
-})();
 
-(function($) {
   'use strict';
   $.extend({
     UIDesktopCompat : function ( ) {
