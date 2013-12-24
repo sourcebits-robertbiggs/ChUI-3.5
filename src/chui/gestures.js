@@ -54,6 +54,7 @@
     var body = $(document.body);
     var twoTouches = false;
     body.on($.eventStart, function(e) {
+      e.preventDefault();
       now = Date.now();
       delta = now - (touch.last || now);
       if (e.originalEvent) e = e.originalEvent;
@@ -103,6 +104,7 @@
       longTapTimeout = setTimeout(longTap, longTapDelay);
     });
     body.on($.eventMove, function(e) {
+      e.preventDefault();
       if (e.originalEvent) e = e.originalEvent;
       if (window.navigator.msPointerEnabled) {
         if (window && window.jQuery && $ === window.jQuery) {
