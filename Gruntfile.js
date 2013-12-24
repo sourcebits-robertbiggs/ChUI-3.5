@@ -80,7 +80,11 @@ module.exports = function(grunt) {
         options: {
           banner: '/*\n    pO\\\n   6  /\\\n     /OO\\\n    /OOOO\\\n  /OOOOOOOO\\\n ((OOOOOOOO))\n  \\:~=++=~:/\n\n<%= pkg.title %>\nChUI.js\nCopyright <%= grunt.template.today("yyyy") %> Sourcebits www.sourcebits.com\nLicense: <%= pkg.licences[0].type %>\nVersion: <%= pkg.version %>\n*/\n'
         },
-        src: ['src/chui/start.js', '<%= pkg.project_path %>chui/chui-<%= pkg.version %>.js', 'src/chui/end.js'],
+        src: [
+          'src/chui/start.js', 
+          '<%= pkg.project_path %>chui/chui-<%= pkg.version %>.js', 
+          'src/chui/end.js'
+        ],
         dest: '<%= pkg.project_path %>chui/chui-<%= pkg.version %>.js'
       },
 
@@ -309,11 +313,7 @@ module.exports = function(grunt) {
         },
         options: {
           replacements: [{
-            pattern: /\(function\(\$\) {/img,
-            replacement: ''
-          },
-          {
-            pattern: /^.*\'use strict\';/img,
+            pattern: /\(function\(\$\) {\n^.*\'use strict\';/img,
             replacement: ''
           },
           {
@@ -357,29 +357,105 @@ module.exports = function(grunt) {
   ]);
 
   // Build all three themes with ChUI.js:
-  grunt.registerTask('chui', ['concat:chui', 'string-replace', 'jshint', 'uglify', 'less', 'concat:android', 'concat:ios', 'concat:win', 'cssmin']);
+  grunt.registerTask('chui', [
+    'concat:chui', 
+    'string-replace', 
+    'jshint', 
+    'uglify', 
+    'less', 
+    'concat:android', 
+    'concat:ios', 
+    'concat:win', 
+    'cssmin'
+  ]);
 
   // Build just ChUI.js:
-  grunt.registerTask('chuijs', ['concat:chui', 'string-replace', 'concat:wrap', 'jshint', 'uglify']);
+  grunt.registerTask('chuijs', [
+    'concat:chui', 
+    'string-replace', 
+    'concat:wrap', 
+    'jshint', 
+    'uglify'
+  ]);
 
   // Build Android theme:
-  grunt.registerTask('android', ['less:android', 'concat:android', 'cssmin:android']);
+  grunt.registerTask('android', [
+    'less:android', 
+    'concat:android', 
+    'cssmin:android'
+  ]);
 
   // Build iOS theme:
-  grunt.registerTask('ios', ['less:ios', 'concat:ios', 'cssmin:ios']);
+  grunt.registerTask('ios', [
+    'less:ios', 
+    'concat:ios', 
+    'cssmin:ios'
+  ]);
 
   // Build Windows theme:
-  grunt.registerTask('win', ['less:win', 'concat:win', 'cssmin:win']);
+  grunt.registerTask('win', [
+    'less:win', 
+    'concat:win', 
+    'cssmin:win'
+  ]);
 
   // Build all three themes:
-  grunt.registerTask('themes', ['less', 'concat:android', 'concat:ios', 'concat:win', 'cssmin']);
+  grunt.registerTask('themes', [
+    'less', 
+    'concat:android', 
+    'concat:ios', 
+    'concat:win', 
+    'cssmin'
+  ]);
 
   // Build Android examples:
-  grunt.registerTask('android_examples', ['less:android', 'concat:android', 'concat:chui', 'string-replace', 'concat:wrap', 'concat:example_android', 'concat:demo_android', 'cssmin:android', 'copy:images', 'copy:data', 'copy:index_android', 'jshint', 'uglify']);
+  grunt.registerTask('android_examples', [
+    'less:android', 
+    'concat:android', 
+    'concat:chui', 
+    'string-replace', 
+    'concat:wrap', 
+    'concat:example_android', 
+    'concat:demo_android', 
+    'cssmin:android', 
+    'copy:images', 
+    'copy:data', 
+    'copy:index_android', 
+    'jshint', 
+    'uglify'
+  ]);
 
   // Build iOS examples:
-  grunt.registerTask('ios_examples', ['less:ios', 'concat:ios', 'concat:chui', 'string-replace', 'concat:wrap', 'concat:example_ios', 'concat:demo_android', 'cssmin:ios', 'copy:images', 'copy:data', 'copy:index_ios', 'jshint', 'uglify']);
+  grunt.registerTask('ios_examples', [
+    'less:ios', 
+    'concat:ios', 
+    'concat:chui', 
+    'string-replace', 
+    'concat:wrap', 
+    'concat:example_ios', 
+    'concat:demo_android', 
+    'cssmin:ios', 
+    'copy:images', 
+    'copy:data', 
+    'copy:index_ios', 
+    'jshint', 
+    'uglify'
+  ]);
 
   // Build Windows Phone 8 examples:
-  grunt.registerTask('win_examples', ['less:win', 'concat:win', 'concat:chui', 'string-replace', 'concat:wrap', 'concat:example_win', 'concat:demo_android', 'cssmin:win', 'copy:images', 'copy:data', 'copy:index_win', 'jshint', 'uglify']);
+  grunt.registerTask('win_examples', [
+    'less:win', 
+    'concat:win', 
+    'concat:chui', 
+    'string-replace', 
+    'concat:wrap', 
+    'concat:example_win', 
+    'concat:demo_android', 
+    'cssmin:win', 
+    'copy:images', 
+    'copy:data', 
+    'copy:index_win', 
+    'jshint', 
+    'uglify'
+  ]);
 };
