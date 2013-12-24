@@ -15,17 +15,17 @@
     // Setup Event Variables:
     //////////////////////////
     // Pointer events for IE10 and WP8:
-    if (window.navigator.msPointerEnabled) {
-      $.eventStart = 'MSPointerDown';
-      $.eventEnd = 'MSPointerUp';
-      $.eventMove = 'MSPointerMove';
-      $.eventCancel = 'MSPointerCancel';
-    // Pointer events for IE11 and WP8:
-    } else if (window.navigator.pointerEnabled) {
+    if (window.navigator.pointerEnabled) {
       $.eventStart = 'pointerdown';
       $.eventEnd = 'pointerup';
       $.eventMove = 'pointermove';
       $.eventCancel = 'pointercancel';
+    // Pointer events for IE10 and WP8:
+    } else if (window.navigator.msPointerEnabled) {
+      $.eventStart = 'MSPointerDown';
+      $.eventEnd = 'MSPointerUp';
+      $.eventMove = 'MSPointerMove';
+      $.eventCancel = 'MSPointerCancel';
     // Touch events for iOS & Android:
     } else if ('ontouchstart' in window) {
       $.eventStart = 'touchstart';
