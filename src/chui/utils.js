@@ -14,6 +14,72 @@
     ///////////////////////////
     concat : function ( args ) {
       return (args instanceof Array) ? args.join('') : [].slice.apply(arguments).join('');
+    },
+
+    ////////////////////////////
+    // Version of each that uses
+    // regular paramater order:
+    ////////////////////////////
+    forEach : function ( obj, callback, args ) {
+      function isArraylike( obj ) {
+        var length = obj.length,
+          type = jQuery.type( obj );
+
+        if ( type === "function" || jQuery.isWindow( obj ) ) {
+          return false;
+        }
+
+        if ( obj.nodeType === 1 && length ) {
+          return true;
+        }
+
+        return type === "array" || length === 0 ||
+          typeof length === "number" && length > 0 && ( length - 1 ) in obj;
+      } 
+      var value,
+      i = 0,
+      length = obj.length,
+      isArray = isArraylike( obj );
+
+      if ( args ) {
+        if ( isArray ) {
+          for ( ; i < length; i++ ) {
+            value = callback.apply( obj[ i ], args );
+
+            if ( value === false ) {
+              break;
+            }
+          }
+        } else {
+          for ( i in obj ) {
+            value = callback.apply( obj[ i ], args );
+
+            if ( value === false ) {
+              break;
+            }
+          }
+        }
+
+      // A special, fast, case for the most common use of each
+      } else {
+        if ( isArray ) {
+          for ( ; i < length; i++ ) {
+            value = callback.call( obj[ i ], obj[ i ], i );
+
+            if ( value === false ) {
+              break;
+            }
+          }
+        } else {
+          for ( i in obj ) {
+            value = callback.call( obj[ i ], obj[ i ], i );
+
+            if ( value === false ) {
+              break;
+            }
+          }
+        }
+      }
     }
   });
 
@@ -114,6 +180,14 @@
         }
       });
       return ret;
+    },
+
+    ////////////////////////////
+    // Version of each that uses
+    // regular paramater order:
+    ////////////////////////////
+    forEach : function ( callback, args ) {
+      return $.forEach( this, callback, args );
     }
   });
 })(window.jQuery);

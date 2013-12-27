@@ -8,10 +8,7 @@
     UIPanelToggle : function ( panel, callback ) {
       var panels;
       var selected = 0;
-      if (this.children().hazClass('selected')[0]) {
-        selected = this.children().hazClass('selected').index();
-      }
-
+      selected = this.children().hazClass('selected').index() || 0;
       if (panel instanceof Array) {
         panels = panel.children('div');
       } else if (typeof panel === 'string') {

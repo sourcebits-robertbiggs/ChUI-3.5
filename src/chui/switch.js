@@ -8,8 +8,7 @@
     ////////////////////////////
     UISwitch : function ( ) {
       var hasThumb = false;
-      this.each(function(ctx, idx) {
-        if (window && window.jQuery && $ === window.jQuery) ctx = idx;
+      this.forEach(function(ctx, idx) {
         ctx.setAttribute('role','checkbox');
         if ($(ctx).data('ui-setup') === true) return;
         if (!ctx.querySelector('input')) {

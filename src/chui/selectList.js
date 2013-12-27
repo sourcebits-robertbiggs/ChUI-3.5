@@ -26,13 +26,7 @@
       }
       if (!list) return [];
       list.classList.add('select');
-      $(list).find('li').each(function(ctx, idx) {
-        var temp;
-        if (window && window.jQuery && $ === window.jQuery) {
-          temp = ctx;
-          ctx = idx;
-          idx = temp;
-        }
+      $(list).find('li').forEach(function(ctx, idx) {
         ctx.setAttribute('role', 'radio');
         if (options && options.selected === idx) {
           ctx.setAttribute('aria-checked', 'true');
