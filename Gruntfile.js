@@ -136,7 +136,7 @@ module.exports = function(grunt) {
       // Concat iOS version of demo:
       demo_ios: {
         options: {
-          banner: '<!DOCTYPE html>\n<html lang="en">\n<head>\n  <meta charset="utf-8">\n  <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">\n  <meta name="apple-mobile-web-app-capable" content="yes">\n  <meta name="mobile-web-app-capable" content="yes">\n  <meta name="msapplication-tap-highlight" content="no">\n  <title>ChocolateChip-UI Demo iOS</title>\n  <link rel="stylesheet" href="../chui/chui-android-<%= pkg.version %>.css">\n  <script src="<%= pkg.jquery.url %>"></script>\n  <script src="../chui/chui-<%= pkg.version %>.js"></script>\n'
+          banner: '<!DOCTYPE html>\n<html lang="en">\n<head>\n  <meta charset="utf-8">\n  <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">\n  <meta name="apple-mobile-web-app-capable" content="yes">\n  <meta name="mobile-web-app-capable" content="yes">\n  <meta name="msapplication-tap-highlight" content="no">\n  <title>ChocolateChip-UI Demo iOS</title>\n  <link rel="stylesheet" href="../chui/chui-ios-<%= pkg.version %>.css">\n  <script src="<%= pkg.jquery.url %>"></script>\n  <script src="../chui/chui-<%= pkg.version %>.js"></script>\n'
         },
         files: {
           '<%= pkg.projectPath %>demo/index-ios.html': ['src/demo/index.html']
@@ -145,7 +145,7 @@ module.exports = function(grunt) {
       // Concat Windows Phone 8 version of demo:
       demo_win: {
         options: {
-          banner: '<!DOCTYPE html>\n<html lang="en">\n<head>\n  <meta charset="utf-8">\n  <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">\n  <meta name="apple-mobile-web-app-capable" content="yes">\n  <meta name="mobile-web-app-capable" content="yes">\n  <meta name="msapplication-tap-highlight" content="no">\n  <title>ChocolateChip-UI Demo Windows</title>\n  <link rel="stylesheet" href="../chui/chui-android-<%= pkg.version %>.css">\n  <script src="<%= pkg.jquery.url %>"></script>\n  <script src="../chui/chui-<%= pkg.version %>.js"></script>\n'
+          banner: '<!DOCTYPE html>\n<html lang="en">\n<head>\n  <meta charset="utf-8">\n  <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">\n  <meta name="apple-mobile-web-app-capable" content="yes">\n  <meta name="mobile-web-app-capable" content="yes">\n  <meta name="msapplication-tap-highlight" content="no">\n  <title>ChocolateChip-UI Demo Windows</title>\n  <link rel="stylesheet" href="../chui/chui-win-<%= pkg.version %>.css">\n  <script src="<%= pkg.jquery.url %>"></script>\n  <script src="../chui/chui-<%= pkg.version %>.js"></script>\n'
         },
         files: {
           '<%= pkg.projectPath %>demo/index-win.html': ['src/demo/index.html']
@@ -434,7 +434,7 @@ module.exports = function(grunt) {
     'string-replace', 
     'concat:wrap', 
     'concat:example_ios', 
-    'concat:demo_android', 
+    'concat:demo_ios', 
     'cssmin:ios', 
     'copy:images', 
     'copy:data', 
@@ -451,7 +451,7 @@ module.exports = function(grunt) {
     'string-replace', 
     'concat:wrap', 
     'concat:example_win', 
-    'concat:demo_android', 
+    'concat:demo_win', 
     'cssmin:win', 
     'copy:images', 
     'copy:data', 
