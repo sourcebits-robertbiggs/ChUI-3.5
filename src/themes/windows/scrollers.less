@@ -38,11 +38,17 @@ article > section {
   -ms-flex-pack: start;
   -ms-flex-align: stretch;
   -ms-flex-direction: row;
-
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch;
   &.centered {
     display: -ms-flexbox;
     -ms-flex-pack: center;
     -ms-flex-align: stretch;
     -ms-flex-direction: row;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
   }
 }

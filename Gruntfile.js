@@ -273,6 +273,24 @@ module.exports = function(grunt) {
         }
       }
     },
+    // Replace individual closures with one close for all:
+    'string-replace': {
+      dist: {
+        files: {
+          '<%= pkg.projectPath %>chui/chui-<%= pkg.version %>.js': '<%= pkg.projectPath %>chui/chui-<%= pkg.version %>.js'
+        },
+        options: {
+          replacements: [{
+            pattern: /\(function\(\$\) {\n^.*\'use strict\';/img,
+            replacement: ''
+          },
+          {
+            pattern: /\}\)\(window\.jQuery\);/img,
+            replacement: ''
+          }]
+        }
+      }
+    },
     // Watch files for changes:
     watch: {
       scripts: {
@@ -303,24 +321,6 @@ module.exports = function(grunt) {
           'concat:demo_android', 
           'copy'
         ]
-      }
-    },
-
-    'string-replace': {
-      dist: {
-        files: {
-          '<%= pkg.projectPath %>chui/chui-<%= pkg.version %>.js': '<%= pkg.projectPath %>chui/chui-<%= pkg.version %>.js'
-        },
-        options: {
-          replacements: [{
-            pattern: /\(function\(\$\) {\n^.*\'use strict\';/img,
-            replacement: ''
-          },
-          {
-            pattern: /\}\)\(window\.jQuery\);/img,
-            replacement: ''
-          }]
-        }
       }
     }
   });
@@ -360,6 +360,7 @@ module.exports = function(grunt) {
   grunt.registerTask('chui', [
     'concat:chui', 
     'string-replace', 
+    'concat:wrap',
     'jshint', 
     'uglify', 
     'less', 

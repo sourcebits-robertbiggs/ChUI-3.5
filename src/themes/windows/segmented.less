@@ -2,12 +2,15 @@
    Segmented Control
    =========================== */
 .segmented {
+  display: -ms-flexbox;
   -ms-flex-direction: row;
   -ms-flex-pack: center;
-  box-sizing: border-box;
-  margin: 0px 10px;
-  display: -ms-flexbox;
   -ms-flex: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex: 1;
+  box-sizing: border-box;
   margin: 0px 10px;
 
   & > .button {
@@ -15,6 +18,10 @@
     -ms-flex-direction: column !important;
     -ms-flex-align: center;
     -ms-flex-pack: center;
+    display: flex;
+    flex-direction: column !important;
+    align-items: center;
+    justify-content: center;
     border: solid 2px @buttonBorder;
     border-left: none;
     text-align: center;
