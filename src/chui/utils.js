@@ -90,7 +90,7 @@
     //////////////////////
     iz : function ( selector ) {
       var ret = $();
-      this.each(function(idx, ctx) {
+      this.forEach(function(ctx) {
         if ($(ctx).is(selector)) {
           ret.push(ctx);
         }
@@ -120,7 +120,7 @@
     ///////////////////////////////////
     haznt : function ( selector ) {
       var ret = $();
-      this.each(function(idx, ctx) {
+      this.forEach(function(ctx) {
         if (!$(ctx).has(selector)[0]) {
           ret.push(ctx);
         }
@@ -133,7 +133,7 @@
     //////////////////////////////////////
     hazClass : function ( className ) {
       var ret = $();
-      this.each(function(idx, ctx) {
+      this.forEach(function(ctx) {
         if ($(ctx).hasClass(className)) {
           ret.push(ctx);
         }
@@ -147,7 +147,7 @@
     //////////////////////////////
     hazntClass : function ( className ) {
       var ret = $();
-      this.each(function(idx, ctx) {
+      this.forEach(function(ctx) {
         if (!$(ctx).hasClass(className)) {
           ret.push(ctx);
         }
@@ -160,8 +160,8 @@
     /////////////////////////////////////
     hazAttr : function ( property ) {
       var ret = $();
-      this.each(function(idx, ctx){
-        if (ctx.hasAttribute(property)) {
+      this.forEach(function(ctx){
+        if ($(ctx).attr(property)) {
           ret.push(ctx);
         }
       });
@@ -174,8 +174,8 @@
     //////////////////////////
     hazntAttr : function ( property ) {
       var ret = $();
-      this.each(function(idx, ctx){
-        if (!ctx.hasAttribute(property)) {
+      this.forEach(function(ctx){
+        if (!$(ctx).attr(property)) {
           ret.push(ctx);
         }
       });
