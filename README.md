@@ -22,14 +22,14 @@ Enter your password when it requests. After you should see a number of Nodejs mo
 Now that you have the node modules install, you can just type **grunt** in the terminal and hit return/enter. This will kick off the build process, which will produce the following directories:
 
 
-    chui
-    data
-    demo
-    examples-android
-    examples-ios
-    examples-win
-    images
-    node_modules
+    chui/
+    data/
+    demo/
+    examples-android/
+    examples-ios/
+    examples-win/
+    images/
+    node_modules/
 
  
  If you're starting a new project, you only need the files in the **chui** folder. If you want to create a custom build, then just run **npm install**, then any of the custom build patterns listed below.
