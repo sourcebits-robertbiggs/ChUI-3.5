@@ -1,4 +1,4 @@
-#ChocolateChip - A Compact JavaScript Framework for Mobile Web Apps
+#ChocolateChip - A Compact Framework for Mobile Web Apps
 
 ###ChocolateChip-UI has been acquired by [Sourcebits Inc](http://www.sourcebits.com).
 
@@ -10,15 +10,29 @@ Please visit [ChocolateChip-UI's Website](http://chocolatechip-ui.com) for docum
 
 ##Building 
 
-ChocolateChip-UI uses Gruntjs to build. This is a Node package, so you'll first need to have [Node installed](http://http://nodejs.org). After installing Nodejs, or if you already have it installed, on Mac OS X or Linux use the terminal to cd to the directory. If you're on Windows, you can use the Node command prompt to do this. Once you are in the folder, run the following command in your terminal: 
+ChocolateChip-UI uses Gruntjs to build. This is a Node package, so you'll first need to have [Node installed](http://http://nodejs.org). After installing Nodejs, or if you already have it installed, on Mac OS X use the terminal to cd to the directory. On Windows you can use the Windows command prompt to do this. Once you are in the folder, run the following command in your terminal: 
     npm install -g grunt-cli
 
- If you're on Linux or Mac OS X, you'll need to run the command with **sudo** to avoid installation errors: 
+On Mac OS X, you'll need to run the command with **sudo** to avoid installation errors: 
 
-     sudo npm install -g grunt-cli
+    sudo npm install -g grunt-cli
 
-Enter your password when it requests. After you should see a number of Nodejs modules being installed.
-When it's done you will find the following folders: **chui**, **data**, **demo**, **examples-android**, **examples-ios**, **examples-win**, **images** and **node\_modules**. You do not need **node\_modules** in your final project. The node modules are there to enable the build process with Gruntjs. **Data** and **images** are used by the examples and demo files. All you really need is what's in the **chui** folder. If you want to create a custom build, then just run **npm install**, then any of the custom build patterns listed below.
+Enter your password when it requests. After you should see a number of Nodejs modules being installed in a folder called **node\_modules**. You do not need **node\_modules** in your final project. The node modules are there to enable the build process with Gruntjs.
+
+Now that you have the node modules install, you can just type **grunt** in the terminal and hit return/enter. This will kick off the build process, which will produce the following directories:
+
+
+    chui
+    data
+    demo
+    examples-android
+    examples-ios
+    examples-win
+    images
+    node_modules
+
+ 
+ If you're starting a new project, you only need the files in the **chui** folder. If you want to create a custom build, then just run **npm install**, then any of the custom build patterns listed below.
 
 By default the grunt script builds everything into the same directory as the repository. You can change this so that it builds to a project directory of your choice. Just update the value of projectPath in the package.json file. By default, the value is empty, so it builds into the same directory.  Possible values on a Mac are, assuming your username is 'joe':
 
@@ -32,7 +46,7 @@ For Windows, you would do this:
 
 **Note** If your username is not "joe", the above examples will not work. Please change the word "joe" with the username you use on your computer.
 
-If your development stack supports LESS, you can grab the LESS files in the **src/themes** folder to use directly. The LESS files have all their color values at the top of each file as LESS variables. This makes it easy for you to modify the color scheme of the themes. After modifying the LESS, you can regenerate new CSS as follows:
+If your development stack supports LESS, you can grab the LESS files in the **src/themes** folder to use directly. The colors for each theme are defined in **colors.less**. This makes it easy for you to modify the color scheme of the themes. The order that the files load to create a theme are defined in **main.less**. After modifying the LESS, you can regenerate new CSS as follows:
 
 
     // Run LESS on the iOS theme:
