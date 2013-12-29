@@ -289,6 +289,17 @@ module.exports = function(grunt) {
             replacement: ''
           }]
         }
+      },
+      newlines: {
+        files: {
+          '<%= pkg.projectPath %>chui/chui-<%= pkg.version %>.js': '<%= pkg.projectPath %>chui/chui-<%= pkg.version %>.js'
+        },
+        options: {
+          replacements: [{            
+            pattern: /\n\n\n/img,
+            replacement: '\n\n'
+          }]
+        }
       }
     },
     // Watch files for changes:
@@ -337,43 +348,24 @@ module.exports = function(grunt) {
 
   // Default build:
   grunt.registerTask('default', [
-    'less',
-    'concat:chui',
-    'string-replace',
-    'concat:wrap', 
-    'concat:android', 
-    'concat:ios', 
-    'concat:win', 
-    'cssmin',
-    'concat:examples_android', 
-    'concat:examples_ios', 
-    'concat:examples_win',  
-    'concat:demo_android', 
-    'concat:demo_ios', 
-    'concat:demo_win',  
-    'copy',   
-    'jshint', 
-    'uglify'
+    'chuijs',
+    'themes', 
+    'android_examples',
+    'ios_examples',
+    'win_examples'
   ]);
 
   // Build all three themes with ChUI.js:
   grunt.registerTask('chui', [
-    'concat:chui', 
-    'string-replace', 
-    'concat:wrap',
-    'jshint', 
-    'uglify', 
-    'less', 
-    'concat:android', 
-    'concat:ios', 
-    'concat:win', 
-    'cssmin'
+    'chuijs', 
+    'themes'
   ]);
 
   // Build just ChUI.js:
   grunt.registerTask('chuijs', [
     'concat:chui', 
-    'string-replace', 
+    'string-replace:dist',
+    'string-replace:newlines',
     'concat:wrap', 
     'jshint', 
     'uglify'
@@ -411,52 +403,34 @@ module.exports = function(grunt) {
 
   // Build Android examples:
   grunt.registerTask('android_examples', [
-    'less:android', 
-    'concat:android', 
-    'concat:chui', 
-    'string-replace', 
-    'concat:wrap', 
+    'android', 
+    'chuijs',
     'concat:examples_android', 
     'concat:demo_android', 
-    'cssmin:android', 
     'copy:images', 
     'copy:data', 
-    'copy:index_android', 
-    'jshint', 
-    'uglify'
+    'copy:index_android'
   ]);
 
   // Build iOS examples:
   grunt.registerTask('ios_examples', [
-    'less:ios', 
-    'concat:ios', 
-    'concat:chui', 
-    'string-replace', 
-    'concat:wrap', 
+    'ios', 
+    'chuijs',  
     'concat:examples_ios', 
     'concat:demo_ios', 
-    'cssmin:ios', 
     'copy:images', 
     'copy:data', 
-    'copy:index_ios', 
-    'jshint', 
-    'uglify'
+    'copy:index_ios'
   ]);
 
   // Build Windows Phone 8 examples:
   grunt.registerTask('win_examples', [
-    'less:win', 
-    'concat:win', 
-    'concat:chui', 
-    'string-replace', 
-    'concat:wrap', 
+    'win',  
+    'chuijs', 
     'concat:examples_win', 
     'concat:demo_win', 
-    'cssmin:win', 
     'copy:images', 
     'copy:data', 
-    'copy:index_win', 
-    'jshint', 
-    'uglify'
+    'copy:index_win'
   ]);
 };
