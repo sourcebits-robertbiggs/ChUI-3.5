@@ -19,7 +19,7 @@ On Mac OS X, you'll need to run the command with **sudo** to avoid installation 
 
 Enter your password when it requests. After you should see a number of Nodejs modules being installed in a folder called **node\_modules**. You do not need **node\_modules** in your final project. The node modules are there to enable the build process with Gruntjs.
 
-Now that you have the node modules install, you can just type **grunt** in the terminal and hit return/enter. This will kick off the build process, which will produce the following directories:
+Now that you have the node modules install, you can just type `grunt` in the terminal and hit return/enter. This will kick off the build process, which will produce the following directories:
 
 
     chui/
@@ -65,7 +65,7 @@ If your development stack supports LESS, you can grab the LESS files in the **sr
 If you've modified ChUI.js to address a bug or one for a new widget, you can run JSHint against these files as follows:
 
     // Concat ChUI.js source files & run JSHint:
-    grunt: chuijs
+    grunt chuijs
 
 If you create a new module, make sure you include it in the `concat:chui` task in the Gruntfile so that the build process compiles it into the final version of ChUI.js. Whenever you build ChUI.js, the script also runs JSHint against it, which will flag any coding errors or lapses in coding practices. If JSHint throws an error in the terminal, look for where it stopped and check for any errors in your code. Learn about [JSHint](http://www.jshint.com).
 
