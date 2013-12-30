@@ -175,7 +175,6 @@
     // Make sure that navs and articles have navigation states:
     ///////////////////////////////////////////////////////////
     $('nav:not(#global-nav)').each(function(idx, ctx) {
-      var temp;
       // Prevent if splitlayout for tablets:
       if ($('body')[0].classList.contains('splitlayout')) return;
       if (idx === 0) {
@@ -186,7 +185,6 @@
     });
   
     $('article').each(function(idx, ctx) {
-      var temp;
       // Prevent if splitlayout for tablets:
       if ($('body')[0].classList.contains('splitlayout')) return;
       if ($('body')[0].classList.contains('slide-out-app')) return;
